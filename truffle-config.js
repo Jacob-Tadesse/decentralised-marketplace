@@ -1,3 +1,5 @@
+var HDWalletProvider = require("truffle-hdwallet-provider");
+var mnemonic = "";
 const path = require("path");
 
 module.exports = {
@@ -9,6 +11,12 @@ module.exports = {
       host: "localhost",
       port: 8545,
       network_id: "*" // Match any network id
+    },
+    ropsten: {
+      provider: function() {
+        return new HDWalletProvider(mnemonic, "")
+      },
+      network_id: 3
     }
   }
 };
